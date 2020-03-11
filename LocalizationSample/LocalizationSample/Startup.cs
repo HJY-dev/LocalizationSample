@@ -55,9 +55,22 @@ namespace LocalizationSample
             #region ÃÌº””Ô—‘∞¸
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
-            new CultureInfo("en-US"),
-            new CultureInfo("zh-CN"),
+                new CultureInfo("en-US"){
+                    DateTimeFormat = new DateTimeFormatInfo
+                    {
+                        ShortDatePattern = "yyyy-MM-dd",
+                        LongTimePattern = "HH:mm:ss"
+                    }
+                },
+                new CultureInfo("zh-CN"){
+                    DateTimeFormat = new DateTimeFormatInfo
+                    {
+                        ShortDatePattern = "yyyy-MM-dd",
+                        LongTimePattern = "HH:mm:ss"
+                    }
+                },
             };
+
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture("en-US"),
